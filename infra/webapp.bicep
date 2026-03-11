@@ -3,26 +3,25 @@ param location string = resourceGroup().location
 
 // Imposta uno SKU valido per Web App
 @allowed([
-  'B1'
-  'B2'
-  'B3'
   'S1'
   'S2'
   'S3'
 ])
-param sku string = 'B1'
+param sku string = 'S1'
 
 var appServicePlanName = toLower('AppServicePlan-${webAppName}')
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
   name: appServicePlanName
   location: location
-  sku: {
-    name: sku      // 'B1'
-    tier: sku =~ 'B.*' ? 'Basic' : 'Standard'
-    size: sku      // 'B1'
+  
+sku: {
+    name: sku       // S1
+    tier: 'Standard'
+    size: sku
     capacity: 1
   }
+
   properties: {
     // Linux
     reserved: true
