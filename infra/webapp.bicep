@@ -50,4 +50,3 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
     }
   }
 }
-``
