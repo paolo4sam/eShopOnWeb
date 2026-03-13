@@ -6,8 +6,9 @@ param location string = resourceGroup().location
   'S1'
   'S2'
   'S3'
+  'B1'
 ])
-param sku string = 'S1'
+param sku string = 'B1'
 
 var appServicePlanName = toLower('AppServicePlan-${webAppName}')
 
